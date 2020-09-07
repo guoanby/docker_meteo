@@ -1,4 +1,4 @@
-name: meteo
+name: base
 channels:
   - defaults
 dependencies:
