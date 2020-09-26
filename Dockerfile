@@ -20,12 +20,11 @@ RUN sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list && \
 COPY environment.yaml /tmp/
 
 # 加入清华镜像源
-RUN source ~/.bashrc && \
+RUN /bin/bash -c "source ~/.bashrc && \
     conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/ && \
     conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/ && \
     conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/ && \
-    conda config --set show_channel_urls yes && \
-    pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pip -U && \
+    conda config --set show_channel_urls yes " && \
     pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple && \
     conda env update -f /tmp/environment.yaml && \
     jupyter labextension install @pyviz/jupyterlab_pyviz && \

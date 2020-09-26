@@ -1,5 +1,5 @@
-# 镜像
-## conda mirror  
+# MIRROR
+## conda  
 ```bash
 conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/  
 conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/  
@@ -7,7 +7,7 @@ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/
 conda config --set show_channel_urls yes
 ```
 
-## pip mirror  
+## pip  
 ```bash
 pip install pip -U
 pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
