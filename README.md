@@ -1,5 +1,5 @@
-# MIRROR
-## conda  
+# Mirror
+## conda mirror  
 ```bash
 conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/  
 conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/  
@@ -7,14 +7,18 @@ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/
 conda config --set show_channel_urls yes
 ```
 
-## pip  
+## pip mirror  
 ```bash
 pip install pip -U
 pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 ```
+or
+```bash
+pip config set global.index-url https://pypi.doubanio.com/simple/
+```
 
 # Including packages   
-xarray iris cinrad python-cdo pynco pynio pyngl cfgrib wrf-python cartopy seaborn cmaps geoviews jupyterlab rioxarray regionmask salem==0.2.4 descartes metpy satpy siphon statsmodels xskillscore eofs lxml beautifulsoup4 flask scikit-learn catboost lightgbm xgboost tpot h2o tsfresh arrow pathlib
+xarray iris cinrad python-cdo pynco pynio pyngl cfgrib wrf-python cartopy seaborn cmaps geoviews jupyterlab rioxarray regionmask salem==0.2.4 descartes metpy satpy siphon statsmodels xskillscore eofs lxml beautifulsoup4 flask pycreat scikit-learn catboost lightgbm xgboost tpot h2o tsfresh arrow pathlib .......
 
 # Usage  
 Create a Docker image of python3 enviroment about meteorology by dockerfile.  
@@ -24,17 +28,20 @@ cd docker_meteo
 # create image
 docker build -t guoanby/meteo_linux:1.0 .
 # create container
-docker run -it --name=pythonenv -v /e:/mnt/e guoanby/meteo_linux:1.0 /bin/bash
+docker run -it --name=python -v /e:/mnt/e guoanby/meteo_linux:1.0 /bin/bash
 ```
 
 # Update enviorment
 ```bash
 # push docker
-docker commit pythonenv guoanby/meteo_linux:<tag>
+docker commit python guoanby/meteo_linux:<tag>
 docker push guoanby/meteo_linux:<tag>
 # push git
 cd docker_meteo
+# update package list
 conda env export > environment.yaml
+pip freeze > requirements.txt
+# push to github
 git add . 
 git commit -m  "add ... packages"
 git push -u origin master
