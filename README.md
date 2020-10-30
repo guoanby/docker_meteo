@@ -18,7 +18,7 @@ pip config set global.index-url https://pypi.doubanio.com/simple/
 ```
 
 # Including packages   
-xarray iris cinrad python-cdo pynco pynio pyngl cfgrib wrf-python cartopy seaborn cmaps geoviews jupyterlab rioxarray regionmask salem==0.2.4 descartes metpy satpy siphon statsmodels xskillscore eofs lxml beautifulsoup4 flask pycreat scikit-learn catboost lightgbm xgboost tpot h2o tsfresh arrow pathlib .......
+xarray iris cinrad python-cdo pynco pynio pyngl cfgrib wrf-python cartopy seaborn cmaps geoviews jupyterlab rioxarray regionmask salem==0.2.4 descartes metpy satpy siphon statsmodels xskillscore eofs lxml beautifulsoup4 flask pycarett scikit-learn catboost lightgbm xgboost tpot h2o tsfresh arrow pathlib .......
 
 # Usage  
 Create a Docker image of python3 enviroment about meteorology by dockerfile.  
